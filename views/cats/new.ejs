@@ -1,4 +1,4 @@
-<!-- views/fruits/new.ejs -->
+<!-- views/cats/new.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,15 +10,14 @@
   </head>
 <body>
     <h1>Create a New Cat!</h1>
-    <a class="index-link-text" href="/fruits/">Back to Cats</a>
+    <a class="index-link-text" href="/cats/">Back to Cats</a>
     <form action="/cats" method="POST">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" />
-  
-      <div class="checkbox-div">
-        <label for="sleeping">Sleeping?</label>
-        <input type="checkbox" name="sleeping" id="sleeping" />
-      </div>
+
+
+      <label for="name">Image URL:</label>
+      <input type="text" name="image" id="image" />
   
       <button type="submit">Add Cat</button>
     </form>

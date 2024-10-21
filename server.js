@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
+const path = require('path');
 
 const app = express();
 
@@ -16,6 +17,11 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
+
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
@@ -33,15 +39,15 @@ app.get("/cats", catsCtrl.index);
 // GET /cats/new
 app.get("/cats/new", catsCtrl.new);
 
-// GET /cats/:fruitID
-app.get("/cats/:fruitId", catsCtrl.get);
+// GET /cats/:catID
+app.get("/cats/:catId", catsCtrl.get);
 
 // POST /cats
 app.post("/cats", catsCtrl.show);
 
-// GET localhost:3000/cats/:fruitId/edit
-app.get("/cats/:fruitId/edit", catsCtrl.edit);
+// GET localhost:3000/cats/:catId/edit
+app.get("/cats/:catId/edit", catsCtrl.edit);
 
-app.put("/cats/:fruitId", catsCtrl.update);
+app.put("/cats/:catId", catsCtrl.update);
 
-app.delete("/cats/:fruitId", catsCtrl.delete);
+app.delete("/cats/:catId", catsCtrl.delete);

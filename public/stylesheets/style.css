@@ -23,8 +23,9 @@ body {
     padding: 10px;
   }
   
-  .fruit-pic1 {
-    height: 30%;
+  .cat-pic1 {
+    width: 400px;
+    height: 200px;
   }
 
   form {
@@ -68,7 +69,7 @@ body {
     background-color: #2d4d3a;
   }
 
-  .fruits-index-link {
+  .cats-index-link {
     text-decoration: none;
   }
   
