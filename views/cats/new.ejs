@@ -1,0 +1,26 @@
+<!-- views/fruits/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Create a Cat</title>
+  </head>
+<body>
+    <h1>Create a New Cat!</h1>
+    <a class="index-link-text" href="/fruits/">Back to Cats</a>
+    <form action="/cats" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+  
+      <div class="checkbox-div">
+        <label for="sleeping">Sleeping?</label>
+        <input type="checkbox" name="sleeping" id="sleeping" />
+      </div>
+  
+      <button type="submit">Add Cat</button>
+    </form>
+  </body>
+</html>

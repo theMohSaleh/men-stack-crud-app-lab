@@ -21,6 +21,27 @@ app.listen(3000, () => {
     console.log("Listening on port 3000");
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+
+// GET /
+app.get('/', async (req, res) => {
+    res.render("index.ejs");
 })
+
+// GET /cats
+app.get("/cats", catsCtrl.index);
+
+// GET /cats/new
+app.get("/cats/new", catsCtrl.new);
+
+// GET /cats/:fruitID
+app.get("/cats/:fruitId", catsCtrl.get);
+
+// POST /cats
+app.post("/cats", catsCtrl.show);
+
+// GET localhost:3000/cats/:fruitId/edit
+app.get("/cats/:fruitId/edit", catsCtrl.edit);
+
+app.put("/cats/:fruitId", catsCtrl.update);
+
+app.delete("/cats/:fruitId", catsCtrl.delete);
